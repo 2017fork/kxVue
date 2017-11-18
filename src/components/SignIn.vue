@@ -1,10 +1,15 @@
 <template>
   <div class="signin">
+    <div class="connectwith">
+      <i class="iconfont icon-upward font-24 color-6f"></i>
+      <div class="facebook-btn">CONNECT WITH FACEBOOK</div>
+    </div>
+
     <div class="signin-title color-36">
       <h2 class="font-18">SIGN IN</h2>
     </div>
     <div class="signin-form kx-whitespace">
-      <div class="input-mod">
+      <div class="input-mod" :class="{'is-form': formVerify.email}">
         <label class="font-12">Email</label>
         <div class="clear">
           <input type="Email" placeholder="email"
@@ -18,7 +23,7 @@
           ></i>
         </div>
       </div>
-      <div class="input-mod" style="margin-top: 15px">
+      <div class="input-mod" :class="{'is-form': formVerify.password}">
         <label class="font-12">Password</label>
         <div class="clear">
           <input type="password" placeholder="Nwe password"
@@ -33,7 +38,10 @@
         </div>
       </div>
       <h4 class="forgot color-6f">Forgot your password?</h4>
-      <div class="signin-submit-btn" :class="{'focus': focus}">SIGN IN</div>
+      <div class="signin-submit-btn"
+           :class="{'focus': focus}"
+           @click="onSubmit"
+      >SIGN IN</div>
     </div>
   </div>
 </template>
@@ -47,8 +55,14 @@
         form: {
           email: '',
           password: ''
+        },
+        formVerify: {
+          email: false,
+          password: false
         }
       }
+    },
+    created () {
     },
     methods: {
       onClear (msg) {
@@ -62,9 +76,19 @@
       // （在一些指定设备和浏览器中异步获取 window.innerHeight 进行前后对比而得出键盘高度，控制也没向上滚动）
       focusclick () {
         this.focus = false
+        this.formVerify.email = this.isMail(this.form.email)
+        this.formVerify.password = this.formVerify.password !== ''
       },
       Focus () {
         this.focus = true
+      },
+      isMail (szMail) {
+        const szReg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/
+        const bChk = szReg.test(szMail)
+        return !bChk
+      },
+      onSubmit () {
+        this.focusclick()
       }
     }
   }
@@ -80,6 +104,26 @@
   .signin {
     height: 100vh;
     background-color: #fff;
+    .connectwith{
+      padding: 20px 0;
+      border-bottom: 1px solid #EBEBEB;
+      .facebook-btn{
+        width: 80%;
+        height: 50px;
+        margin:10px auto 0 auto;
+        line-height: 50px;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 40px;
+        background-image: -webkit-linear-gradient(90deg, #6A409F 0%, #901EB1 100%);
+        background-image: linear-gradient(90deg, #6A409F 0%, #901EB1 100%);
+
+        &:active{
+          background-image: -webkit-linear-gradient(90deg, #4a3172 0%, #691883 100%);
+          background-image: linear-gradient(90deg, #4a3172 0%, #691883 100%);
+        }
+      }
+    }
     &-title {
       padding-top: 20px;
       margin-bottom: 10%;
@@ -97,26 +141,17 @@
       label {
       }
       .input-mod {
+        margin-bottom: 15px;
         border-bottom: 1px solid #e9e9e9;
+
+        &.is-form{
+          border-bottom: 1px solid #FD4C9D;
+          & > label{
+            color: #FD4C9D;
+          }
+        }
         .clear {
           position: relative;
-        }
-        .clearx {
-          font-family: iconfont !important;
-          font-size: 22px;
-          line-height: 44px;
-          font-style: normal;
-          -webkit-font-smoothing: antialiased;
-          -webkit-text-stroke-width: .2px;
-          display: block;
-          color: rgba(0, 0, 0, .5);
-          color: #B8B8B8;
-          content: "\e650";
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          margin-top: -22px;
-          margin-right: -10px;
         }
         .icon-clear {
           font-family: iconfont !important;
@@ -165,6 +200,9 @@
       text-align: center;
       background-color: #FD4C9D;
 
+      &:active{
+        background-color: #e44c84;
+      }
       &.focus{
         position: relative;
       }

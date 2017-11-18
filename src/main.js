@@ -6,6 +6,7 @@ import router from './router'
 // import 'amfe-flexible'
 import './assets/base.scss'
 Vue.config.productionTip = false
+document.body.addEventListener('touchstart', function () { })
 
 /* eslint-disable no-new */
 new Vue({

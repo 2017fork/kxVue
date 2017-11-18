@@ -18,13 +18,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: 400; }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-caption, th {
-  text-align: left; }
-
 fieldset, img {
   border: 0; }
 
@@ -43,15 +36,6 @@ input, button, textarea, select, optgroup, option {
   font-style: inherit;
   font-weight: inherit;
   outline: 0; }
-
-button {
-  -webkit-appearance: none;
-  border: 0;
-  background: 0 0; }
-
-a {
-  -webkit-touch-callout: none;
-  text-decoration: none; }
 
 :focus {
   outline: 0;
@@ -158,16 +142,6 @@ h1 {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4; }
 
-.kx-whitespace {
-  padding-left: 20px;
-  padding-right: 20px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-  @media (max-width: 320px) {
-    .kx-whitespace {
-      padding-left: 15px;
-      padding-right: 15px; } }
-
 /*
  * 两端对齐居中
  */
@@ -188,5 +162,15 @@ h1 {
   height: calc(100vh - 45px);
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
+
+.kx-whitespace {
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media (max-width: 320px) {
+    .kx-whitespace {
+      padding-left: 15px;
+      padding-right: 15px; } }
 
 /*# sourceMappingURL=base.css.map */

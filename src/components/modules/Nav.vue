@@ -2,9 +2,9 @@
   <div style="height: 45px">
     <div class="nav">
       <div class="nav-name font-16">{{navName}}</div>
-      <template v-if="navRight !== '0'">
+      <template v-if="navRight">
         <div class="nav-right">
-          <span class="font-14" style="font-weight: 600">{{navRight}}</span>
+          <span class="font-14" style="font-weight: 600">{{navRight}}k</span>
           <i class="iconfont icon-masonry"></i>
         </div>
       </template>
@@ -20,8 +20,8 @@
         required: true
       },
       navRight: {
-        type: String,
-        default: '0'
+        type: Number,
+        default: 0
       }
     },
     name: 'Nav',

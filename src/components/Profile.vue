@@ -11,6 +11,7 @@
           <template v-for="key in data">
             <li
               :style="{backgroundImage: 'url('+ key.avatar +')'}"
+              :class="{'opacity': activeAvatar === key.avatar}"
               @click="onImg(key.avatar)"
             >
             </li>
@@ -68,7 +69,7 @@
       return {
         kxNav: {
           name: 'Profile',
-          right: '15k'
+          right: 15
         },
         activeAvatar: avatar1,
         data: [
@@ -104,6 +105,11 @@
           background-size: cover;
           background-position: center;
           border-bottom: 1px solid #fff;
+          opacity: 0.4;
+
+          &.opacity{
+            opacity: 1;
+          }
         }
       }
     }
