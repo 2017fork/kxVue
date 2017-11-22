@@ -18,7 +18,7 @@
           </template>
         </ul>
       </div>
-      <div>
+      <div class="profile-content">
         <ul class="profile-liked-number sp-justify">
           <li>
             <h4>100</h4>
@@ -35,7 +35,7 @@
         </ul>
         <div class="profile-about kx-whitespace">
           <h3 class="font-14">ABOUT</h3>
-          <p class="nowrap-multi color-6f">Lorem ipsum dolor sit amet, consectetur adipis elit,
+          <p class="nowrap-multi font-12 color-6f">Lorem ipsum dolor sit amet, consectetur adipis elit,
              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim venia quis nostrud exeritation ullamco laboris.
             Lorem ipsum dolor sit amet, consectetur adipis elit,
@@ -113,6 +113,9 @@
         }
       }
     }
+    &-content{
+      margin-bottom: 80px;
+    }
     &-liked-number{
       background-color: #fff;
       &  li {
@@ -143,7 +146,7 @@
       }
       & p{
         line-height: 1.4;
-        text-align: justify;
+        text-align: left;
       }
       .share{
         margin-top: 30px;

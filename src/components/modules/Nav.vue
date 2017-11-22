@@ -4,7 +4,7 @@
       <div class="nav-name font-16">{{navName}}</div>
       <template v-if="navRight">
         <div class="nav-right">
-          <span class="font-14" style="font-weight: 600">{{navRight}}k</span>
+          <span class="font-14" style="font-weight: 500">{{navRight}}k</span>
           <i class="iconfont icon-masonry"></i>
         </div>
       </template>
@@ -39,6 +39,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 9;
     width: 100%;
     height: 45px;
     line-height: 45px;

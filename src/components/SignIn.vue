@@ -18,7 +18,7 @@
                  @click="Focus"
           >
           <i class="iconfont icon-clear"
-             v-if="form.email.length > 1"
+             v-if="form.email.length >= 1"
              @click="onClear('email')"
           ></i>
         </div>
@@ -33,15 +33,16 @@
           >
           <i class="iconfont icon-clear"
              @click="onClear('password')"
-             v-if="form.password.length > 1"
+             v-if="form.password.length >= 1"
           ></i>
         </div>
       </div>
       <h4 class="forgot color-6f">Forgot your password?</h4>
-      <div class="signin-submit-btn"
-           :class="{'focus': focus}"
-           @click="onSubmit"
-      >SIGN IN</div>
+    </div>
+    <div class="signin-submit-btn"
+         :class="{'focus': focus}"
+         @click="onSubmit"
+    >SIGN IN
     </div>
   </div>
 </template>
@@ -104,13 +105,13 @@
   .signin {
     height: 100vh;
     background-color: #fff;
-    .connectwith{
+    .connectwith {
       padding: 20px 0;
       border-bottom: 1px solid #EBEBEB;
-      .facebook-btn{
+      .facebook-btn {
         width: 80%;
         height: 50px;
-        margin:10px auto 0 auto;
+        margin: 10px auto 0 auto;
         line-height: 50px;
         color: #fff;
         font-weight: 700;
@@ -118,7 +119,7 @@
         background-image: -webkit-linear-gradient(90deg, #6A409F 0%, #901EB1 100%);
         background-image: linear-gradient(90deg, #6A409F 0%, #901EB1 100%);
 
-        &:active{
+        &:active {
           background-image: -webkit-linear-gradient(90deg, #4a3172 0%, #691883 100%);
           background-image: linear-gradient(90deg, #4a3172 0%, #691883 100%);
         }
@@ -144,9 +145,9 @@
         margin-bottom: 15px;
         border-bottom: 1px solid #e9e9e9;
 
-        &.is-form{
+        &.is-form {
           border-bottom: 1px solid #FD4C9D;
-          & > label{
+          & > label {
             color: #FD4C9D;
           }
         }
@@ -200,10 +201,10 @@
       text-align: center;
       background-color: #FD4C9D;
 
-      &:active{
+      &:active {
         background-color: #e44c84;
       }
-      &.focus{
+      &.focus {
         position: relative;
       }
     }
